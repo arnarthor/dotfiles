@@ -16,3 +16,10 @@ fi
 
 # Symlink configs
 [ ! -L "$HOME/.zshrc" ] && ln -s ./zshrc ~/.zshrc
+
+# Gitpod configuration for zsh
+if ! grep 'PROMPT_COMMAND=".*exec zsh"' $HOME/.bashrc 1>/dev/null; then {
+    # The supervisor creates the task terminals, supervisor calls BASH from `/bin/bash` instead of the realpath `/usr/bin/bash`
+    # shellcheck disable=SC2016
+    printf '%s\n' 'PROMPT_COMMAND="[ "$BASH" == /bin/bash ] && [ "$PPID" == "$(pgrep -f "supervisor run" | head -n1)" ] && test -v bash_ran && exec zsh || bash_ran=true;$PROMPT_COMMAND"' >> "$HOME/.bashrc";
+} fi
