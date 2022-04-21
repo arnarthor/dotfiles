@@ -16,4 +16,3 @@ fi
 
 # Symlink configs
 [ ! -L "$HOME/.zshrc" ] && ln -s ./zshrc ~/.zshrc
-echo "exec zsh" >> ~/.bashrc
