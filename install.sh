@@ -16,5 +16,3 @@ fi
 
 # Symlink configs
 [ ! -L "$HOME/.zshrc" ] && ln -s ./zshrc ~/.zshrc
-
-chsh -s "$(which zsh)"
