@@ -16,3 +16,5 @@ fi
 
 # Symlink configs
 [ ! -L "$HOME/.zshrc" ] && ln -s ./zshrc ~/.zshrc
+[ -L "$HOME/.bashrc" ] && rm -rf ~/.bashrc
+ln -s ./bashrc ~/.bashrc
