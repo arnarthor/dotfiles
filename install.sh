@@ -2,12 +2,6 @@
 # Install oh-my-zsh
 [ ! -d "$HOME/.oh-my-zsh" ] && sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-if ! command -v starship &> /dev/null 
-then
-  curl -sS https://starship.rs/install.sh | sh
-fi
-
-
 # Install fzf
 if ! [ -x "$(command -v fzf)" ]; then
   git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf

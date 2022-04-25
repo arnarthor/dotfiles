@@ -52,5 +52,4 @@ fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-eval "$(starship init zsh)"
 APOLLO_TELEMETRY_DISABLED=1
