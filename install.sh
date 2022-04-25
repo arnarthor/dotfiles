@@ -3,7 +3,7 @@
 [ ! -d "$HOME/.oh-my-zsh" ] && sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Install starship shell
-if ! [ -x "$(command -v starship)" ]; then
+if [ -x "$(command -v starship)" ]; then
   curl -sS https://starship.rs/install.sh | sh
 fi
 

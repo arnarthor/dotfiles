@@ -8,22 +8,29 @@ eval $(/opt/homebrew/bin/brew shellenv)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-    git	
-    bazel
-    autojump
-    aws
-)
+if [[ "$OSTYPE" == "darwin"* ]]; then 
+  plugins=(
+      git	
+      bazel
+      autojump
+      aws
+  )
 
-# User configuration
+  export NVM_DIR="$HOME/.nvm" 
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:node_modules/.bin:/opt/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH:/Users/arnarthor/.opam/4.02.3/bin:/Users/arnarthor/.cargo/bin:/Applications/Postgres.app/Contents/Versions/latest/bin:$HOME/go/bin"
+  [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
+else 
+  plugins=(
+      git
+      bazel
+      aws
+  )
+fi
 
-export NVM_DIR="$HOME/.nvm" 
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
-export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:node_modules/.bin:/opt/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH:/Users/arnarthor/.opam/4.02.3/bin:/Users/arnarthor/.cargo/bin:/Applications/Postgres.app/Contents/Versions/latest/bin:$HOME/go/bin"
 source $ZSH/oh-my-zsh.sh
 ulimit -n 4000
-[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 
 export EDITOR='code'
 
