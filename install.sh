@@ -15,8 +15,10 @@ if ! [ -x "$(command -v fzf)" ]; then
 fi
 
 # Symlink configs
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
 [ -f "$HOME/.zshrc" ] && rm -f "$HOME/.zshrc"
-[ ! -L "$HOME/.zshrc" ] && ln -s ./zshrc ~/.zshrc
+[ ! -L "$HOME/.zshrc" ] && ln -s "$SCRIPT_DIR/zshrc" ~/.zshrc
 
 # Gitpod configuration for zsh
 if ! grep 'PROMPT_COMMAND=".*exec zsh"' "$HOME/.bashrc" 1>/dev/null; then {
