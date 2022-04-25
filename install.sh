@@ -15,6 +15,7 @@ if ! [ -x "$(command -v fzf)" ]; then
 fi
 
 # Symlink configs
+[ -f "$HOME/.zshrc" ] && rm -f "$HOME/.zshrc"
 [ ! -L "$HOME/.zshrc" ] && ln -s ./zshrc ~/.zshrc
 
 # Gitpod configuration for zsh
